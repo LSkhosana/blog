@@ -1,0 +1,12 @@
+body{
+    height: 100vh;
+}
+
+.picture{
+    display: flex;
+}
+
+.form{
+    margin-left: 50px;
+}
+

@@ -2,6 +2,8 @@ import {BrowserRouter, Routes, Route } from "react-router-dom";
 import Posts from "./pages/Posts";
 import Add from "./pages/Add";
 import Update from "./pages/Update";
+import "./style.css"
+
 
 function App() {
   return (

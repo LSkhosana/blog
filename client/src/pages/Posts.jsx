@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import Navbar from '../Components/NavBar';
+import "../style.css"
+
 
 const Posts = () => {
     const [books, setBooks] = useState([]);
@@ -18,22 +20,26 @@ const Posts = () => {
     }, []);
 
     return (
+        <>
+        <Navbar />
         <div>
-            <h1>Blog</h1>
-            <div className="books">
+            <div className="posts">
                 {books.map((book, index) => (
-                    <div className="book" key={book.id}>
+                    <div className="post" key={book.id}>
                         {book.cover && <img src={book.cover} alt="" />}
-                        <h2>{book.title}</h2>
-                        <p>{book.desc}</p>
-                        <p>{book.cover}</p>
+                        <div className="picture">
+                            <p>{book.cover}</p>
+                        <div className="b-post">
+                            <h2>{book.title}</h2>
+                            <p>{book.desc}</p>
+                        </div>
+                        </div>
                     </div>
                 ))}
             </div>
-            <button>
-                <Link to="/add">Add New Post</Link>
-            </button>
+            
         </div>
+        </>
     );
 };
 

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../Components/NavBar';
 
 const Add = () => {
     const [book,setBooks] = useState({
@@ -27,6 +28,9 @@ const Add = () => {
 
     console.log(book)
   return (
+    <>
+    <Navbar />
+
     <div className='form'>
         <h1>Add New Post</h1>
         <input type="text" placeholder='title' onChange={handleChange} name="title"/>
@@ -35,6 +39,7 @@ const Add = () => {
     
     <button onClick={handleClick}>Add</button>
     </div>
+    </>
   );
 };
 
