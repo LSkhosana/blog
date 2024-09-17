@@ -1,7 +1,12 @@
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../Components/NavBar';
 import "../style.css"
+import { Link } from 'react-router-dom';
+import remove from "../assets/bin.png"
+import edit from "../assets/edit.png"
+
 
 
 const Posts = () => {
@@ -18,23 +23,39 @@ const Posts = () => {
         };
         fetchAllBooks();
     }, []);
+   console.log(books);
+
+    const handleDelete = async (id)=>{
+        try{
+            await axios.delete("http://localhost:8800/books/"+id);
+            window.location.reload()
+        }catch(err){
+            console.error(err)
+        }
+    }
 
     return (
         <>
         <Navbar />
         <div>
             <div className="posts">
-                {books.map((book, index) => (
+                {books.map((book) => (
                     <div className="post" key={book.id}>
-                        {book.cover && <img src={book.cover} alt="" />}
-                        <div className="picture">
-                            <p>{book.cover}</p>
+                        {<img src={book.cover} alt="" />}
+                        
                         <div className="b-post">
                             <h2>{book.title}</h2>
                             <p>{book.desc}</p>
+                            <button className="delete" onClick={()=>handleDelete(book.id)}>
+                                <img src={remove} alt="Delete" />
+                            </button>
+                            <button className="update">
+                                <Link to={`/update/${book.id}`}><img src={edit} alt="Delete"/></Link>
+                            </button>
                         </div>
+                        
                         </div>
-                    </div>
+                        
                 ))}
             </div>
             
@@ -44,3 +65,5 @@ const Posts = () => {
 };
 
 export default Posts;
+
+

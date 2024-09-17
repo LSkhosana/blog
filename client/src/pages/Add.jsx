@@ -1,46 +1,62 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../Components/NavBar';
+import axios from "axios";
+import React from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Add = () => {
-    const [book,setBooks] = useState({
-        title: "",
-        desc: "",
-        cover: "",
-    });
+  const [book, setBook] = useState({
+    title: "",
+    desc: "",
+    cover: "",
+  });
+  const [error,setError] = useState(false)
 
-    const navigate =useNavigate()
-    
-    const handleChange = (e) =>{
-        setBooks(prev=>({...prev, [e.target.name]: e.target.value}))
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setBook((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:8800/books", book);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+      setError(true)
     }
+  };
 
-    const handleClick = async e =>{
-        e.preventDefault();
-        try{
-            await axios.post("http://localhost:8800/books", book)
-            navigate("/")
-        }catch(err){
-            console.log(err)
-        }
-    }
-
-    console.log(book)
   return (
-    <>
-    <Navbar />
-
-    <div className='form'>
-        <h1>Add New Post</h1>
-        <input type="text" placeholder='title' onChange={handleChange} name="title"/>
-        <input type="text" placeholder='desc' onChange={handleChange} name="desc"/>
-        <input type="text" placeholder='cover' onChange={handleChange} name="cover"/>
-    
-    <button onClick={handleClick}>Add</button>
+    <div className="form">
+      <h1>Add New Post</h1>
+      <input
+        type="text"
+        placeholder="Book title"
+        name="title"
+        onChange={handleChange}
+      />
+      <textarea
+        rows={8}
+        type="text"
+        placeholder="Book desc"
+        name="desc"
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        placeholder="Book cover"
+        name="cover"
+        onChange={handleChange}
+      />
+      <div className="btns">
+      <button onClick={handleClick}>Add Post</button>
+      {error && "Something went wrong!"}
+      <button><Link to="/" style={{ textDecoration: 'none', color: 'inherit', display: 'inline-block' }}>See All Posts</Link></button>
+      </div>
     </div>
-    </>
   );
 };
 
-export default Add
+export default Add;
