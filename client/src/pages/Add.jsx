@@ -20,7 +20,7 @@ const Add = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://blog-ys2f.onrender.com/books", book);
+      await axios.post("https://test-lgeo.onrender.com/books", book);
       navigate("/");
     } catch (err) {
       console.log(err);

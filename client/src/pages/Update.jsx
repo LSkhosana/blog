@@ -23,7 +23,7 @@ const Update = () => {
     const handleClick = async e =>{
         e.preventDefault();
         try{
-            await axios.put("https://blog-ys2f.onrender.com/books/"+ bookId, book)
+            await axios.put("https://test-lgeo.onrender.com/books/"+ bookId, book)
             navigate("/")
         }catch(err){
             console.log(err)

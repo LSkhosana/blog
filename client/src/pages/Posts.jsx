@@ -15,7 +15,7 @@ const Posts = () => {
     useEffect(() => {
         const fetchAllBooks = async () => {
             try {
-                const res = await axios.get("https://blog-ys2f.onrender.com/books");
+                const res = await axios.get("https://test-lgeo.onrender.com//books");
                 setBooks(res.data);
             } catch (err) {
                 console.error(err);
@@ -27,7 +27,7 @@ const Posts = () => {
 
     const handleDelete = async (id)=>{
         try{
-            await axios.delete("https://blog-ys2f.onrender.com/books/"+id);
+            await axios.delete("https://test-lgeo.onrender.com/books/"+id);
             window.location.reload()
         }catch(err){
             console.error(err)
