@@ -27,7 +27,7 @@ const Posts = () => {
 
     const handleDelete = async (id)=>{
         try{
-            await axios.delete("http://localhost:8800/books/"+id);
+            await axios.delete("https://blog-backend-dj9a.onrender.com/books/"+id);
             window.location.reload()
         }catch(err){
             console.error(err)
