@@ -15,7 +15,7 @@ const Posts = () => {
     useEffect(() => {
         const fetchAllBooks = async () => {
             try {
-                const res = await axios.get("http://localhost:8800/books");
+                const res = await axios.get("https://blog-backend-dj9a.onrender.com/books");
                 setBooks(res.data);
             } catch (err) {
                 console.error(err);
