@@ -1,8 +1,9 @@
 body{
     height: 100vh;
+    padding: 0 80px;
 }
 
-.picture{
+.post{
     display: flex;
 }
 
@@ -10,3 +11,7 @@ body{
     margin-left: 50px;
 }
 
+img{
+    width:400px;
+    height: 500px;
+}
