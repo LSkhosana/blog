@@ -15,7 +15,7 @@ const Posts = () => {
     useEffect(() => {
         const fetchAllBooks = async () => {
             try {
-                const res = await axios.get("https://test-lgeo.onrender.com//books");
+                const res = await axios.get("https://test-lgeo.onrender.com/books");
                 setBooks(res.data);
             } catch (err) {
                 console.error(err);
