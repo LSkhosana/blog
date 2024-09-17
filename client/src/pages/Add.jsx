@@ -20,7 +20,7 @@ const Add = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://blog-backend-dj9a.onrender.com/books", book);
+      await axios.post("http://localhost:8800/books", book);
       navigate("/");
     } catch (err) {
       console.log(err);

@@ -15,7 +15,7 @@ const Posts = () => {
     useEffect(() => {
         const fetchAllBooks = async () => {
             try {
-                const res = await axios.get("https://blog-backend-dj9a.onrender.com/books");
+                const res = await axios.get("http://localhost:8800/books");
                 setBooks(res.data);
             } catch (err) {
                 console.error(err);
@@ -27,7 +27,7 @@ const Posts = () => {
 
     const handleDelete = async (id)=>{
         try{
-            await axios.delete("https://blog-backend-dj9a.onrender.com/books/"+id);
+            await axios.delete("http://localhost:8800/books/"+id);
             window.location.reload()
         }catch(err){
             console.error(err)
