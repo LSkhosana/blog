@@ -33,20 +33,20 @@ const Add = () => {
       <h1>Add New Post</h1>
       <input
         type="text"
-        placeholder="Book title"
+        placeholder="Add title"
         name="title"
         onChange={handleChange}
       />
       <textarea
         rows={8}
         type="text"
-        placeholder="Book desc"
+        placeholder="Add Post"
         name="desc"
         onChange={handleChange}
       />
       <input
         type="text"
-        placeholder="Book cover"
+        placeholder="Add Image"
         name="cover"
         onChange={handleChange}
       />
